@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="input"></label><input type="text" id="input" placeholder="Enter your number" >
+<input type="button" id="check" value="Check Number"><br>
+<p id="result"></p>
+
+<script>
+    document.getElementById('check').addEventListener("click", showResult);
+
+    function showResult(){
+        let number = +document.getElementById("input").value;
+        if (checkPrimeNumber(number)){
+            document.getElementById('result').innerHTML = number + ' is Prime';
+        }else{
+            document.getElementById('result').innerHTML = number+ ' is not Prime';
+        }
+    }
+
+    function checkPrimeNumber(n){
+        if (n < 2) return false;
+        let q = Math.floor(Math.sqrt(n));
+        for (let i = 2; i <= q; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+</script>
+</body>
+</html>
